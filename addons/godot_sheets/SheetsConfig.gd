@@ -81,7 +81,9 @@ func _on_menu_pressed():
 	if(enabled == false):
 		return
 	var menu = $WindowDialog/padding/content/main/SheetSelect/menu
-	var current_selection = menu.get_item_metadata(current_sheet)
+	var current_selection = null
+	if(menu.items.size() > 0):
+		current_selection = menu.get_item_metadata(current_sheet)
 
 	menu.text = "Loading Sheets..."
 
@@ -90,11 +92,14 @@ func _on_menu_pressed():
 	menu.clear()
 	var new_selection=0
 	if(data.has("items")):
+		var indexi = 0
 		for file in data.items:
 			menu.add_item(file.title)
-			menu.set_item_metadata(menu.get_item_count()-1,file.id)
+			menu.set_item_metadata(indexi,file.id)
+			current_sheet = indexi
 			if(file.id == current_selection):
-				new_selection = menu.get_item_count()-1
+				new_selection = indexi
+			indexi = indexi +1
 	
 	current_selection = new_selection
 	menu.selected = new_selection
