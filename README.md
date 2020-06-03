@@ -10,12 +10,12 @@ Google Sheets to a Godot Node
 ## Commands
 All Commands must be in the first column, but they can be in any row
 
-**FIELDNAMES** _:ROWS_ _:COLS_
+**FIELD_NAMES**_:ROWS__:COLS_
 This command sets up the variable names that will appear on your sheet object.
 
 *Sheet1*
 ```
-FIELDNAMES|var1|var2|var3
+FIELD_NAMES|var1|var2|var3
 obj1      |val1|val2|val3
 obj2      |val4|val5|val6
 ```
@@ -36,7 +36,7 @@ Sheet1 = {
 ```
 You can also make it use columns like this
 ```
-FIELDNAMES:COLS|obj1|obj2
+FIELD_NAMES:COLS|obj1|obj2
 var1           |val1|val4
 var2           |val2|val5
 var3           |val3|val6
